@@ -1,12 +1,11 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
 package org.farmon.farmonclient;
-//import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.glassfish.jersey.jackson.JacksonFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.Entity;
@@ -17,54 +16,64 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.farmon.farmondto.UserDTO;
+
 /**
  *
  * @author sb
  */
 public class FarmonClient {
-
     
-    public static void main(String[] args) {
+    private WebTarget webTarget;
+    private Client client;
+    private String BASE_URI;
+    
+    public FarmonClient() {
+        BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
+    }
+    public FarmonClient(String server,String serverPort) {
+        BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
+    }
+    
+    public UserDTO callLoginAuthService(UserDTO userDTO) {
         System.out.println("Hello World!");
-        UserDTO firstDTO = new UserDTO();
-        firstDTO.setID("2");
-        firstDTO.setUsername("susmita");
-        firstDTO.setPassword("susmita");
-        String BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
+        UserDTO loginDTO = new UserDTO();
+        
+        loginDTO.setUsername(userDTO.getUsername());
+        loginDTO.setPassword(userDTO.getPassword());
+//        String BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
 
-        Client client = ClientBuilder.newBuilder()
+        client = ClientBuilder.newBuilder()
                    .register(org.glassfish.jersey.jackson.JacksonFeature.class)
                    .build();
 
-        WebTarget webTarget = client.target(BASE_URI).path("loginAuth");
+        webTarget = client.target(BASE_URI).path("allServices/loginAuth");
         WebTarget resource = webTarget;
         ObjectMapper objectMapper = new ObjectMapper();
         
         String dataDTOJSON;
         try {
-            dataDTOJSON = objectMapper.writeValueAsString(firstDTO);
+            dataDTOJSON = objectMapper.writeValueAsString(loginDTO);
         } catch (JsonProcessingException ex) {
             Logger.getLogger(UserDTO.class.getName()).log(Level.SEVERE, null, ex);
-//            firstDTO.setResponseMsg("error");
-            dataDTOJSON = "";
-//            return firstDTO;
+            loginDTO.setResponseMsg("error");
+//            dataDTOJSON = "";
+            return loginDTO;
         }
         Invocation.Builder ib = resource.request(jakarta.ws.rs.core.MediaType.APPLICATION_JSON);
         Response response = ib.post(Entity.entity(dataDTOJSON, jakarta.ws.rs.core.MediaType.APPLICATION_JSON));
 //        Response response = ib.get();
         String respMapJSON = response.readEntity(String.class);
         try {
-            firstDTO = objectMapper.readValue(respMapJSON, UserDTO.class);
+            loginDTO = objectMapper.readValue(respMapJSON, UserDTO.class);
         } catch (IOException ex) {
             Logger.getLogger(UserDTO.class.getName()).log(Level.SEVERE, null, ex);
-//            firstDTO.setCode("responserror");
-//            return fractalDTO;
+            loginDTO.setResponseMsg("responserror");
+            
         }
-        System.out.println(firstDTO.getID());
-        System.out.println(firstDTO.getUsername());
-        System.out.println(firstDTO.getPassword());
-        System.out.println(firstDTO.getResponseMsg());
+        return loginDTO;
+//        System.out.println(firstDTO.getID());
+//        System.out.println(firstDTO.getUsername());
+//        System.out.println(firstDTO.getPassword());
+//        System.out.println(firstDTO.getResponseMsg());
     }
-    
-    
 }
