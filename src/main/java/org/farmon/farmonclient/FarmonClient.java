@@ -15,6 +15,7 @@ import jakarta.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.farmon.farmondto.FarmonDTO;
 import org.farmon.farmondto.UserDTO;
 
 /**
@@ -33,47 +34,89 @@ public class FarmonClient {
     public FarmonClient(String server,String serverPort) {
         BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
     }
-    
-    public UserDTO callLoginAuthService(UserDTO userDTO) {
-        System.out.println("Hello World!");
-        UserDTO loginDTO = new UserDTO();
-        
-        loginDTO.setUsername(userDTO.getUsername());
-        loginDTO.setPassword(userDTO.getPassword());
-//        String BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
-
-        client = ClientBuilder.newBuilder()
-                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
-                   .build();
-
-        webTarget = client.target(BASE_URI).path("allServices/loginAuth");
+    private FarmonDTO callFarmonService(FarmonDTO farmonDTO) {
         WebTarget resource = webTarget;
         ObjectMapper objectMapper = new ObjectMapper();
         
         String dataDTOJSON;
         try {
-            dataDTOJSON = objectMapper.writeValueAsString(loginDTO);
+            dataDTOJSON = objectMapper.writeValueAsString(farmonDTO);
         } catch (JsonProcessingException ex) {
             Logger.getLogger(UserDTO.class.getName()).log(Level.SEVERE, null, ex);
-            loginDTO.setResponseMsg("error");
+            farmonDTO.getUserDto().setResponseMsg("writejsonerror");
 //            dataDTOJSON = "";
-            return loginDTO;
+            return farmonDTO;
         }
         Invocation.Builder ib = resource.request(jakarta.ws.rs.core.MediaType.APPLICATION_JSON);
         Response response = ib.post(Entity.entity(dataDTOJSON, jakarta.ws.rs.core.MediaType.APPLICATION_JSON));
 //        Response response = ib.get();
         String respMapJSON = response.readEntity(String.class);
         try {
-            loginDTO = objectMapper.readValue(respMapJSON, UserDTO.class);
+            farmonDTO = objectMapper.readValue(respMapJSON, FarmonDTO.class);
         } catch (IOException ex) {
             Logger.getLogger(UserDTO.class.getName()).log(Level.SEVERE, null, ex);
-            loginDTO.setResponseMsg("responserror");
+            farmonDTO.getUserDto().setResponseMsg("responsreaderror");
             
         }
-        return loginDTO;
-//        System.out.println(firstDTO.getID());
-//        System.out.println(firstDTO.getUsername());
-//        System.out.println(firstDTO.getPassword());
-//        System.out.println(firstDTO.getResponseMsg());
+        return farmonDTO;
+    }
+    public FarmonDTO callLoginAuthService(FarmonDTO userDTO) {
+//        System.out.println("Hello World!");
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/loginAuth");
+        return callFarmonService(userDTO);
+    }
+    
+    public FarmonDTO callActiveHarvestListService(FarmonDTO farmondto) {
+//        System.out.println("Hello World!");
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/actiHarvestList");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callHarvestRecService(FarmonDTO farmondto) {
+//        System.out.println("Hello World!");
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/harvestRecord");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callResCropListService(FarmonDTO farmondto) {
+//        System.out.println("Hello World!");
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/resCropList");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callLabCropListService(FarmonDTO farmondto) {
+//        System.out.println("Hello World!");
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/labCropList");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callFarmresListService(FarmonDTO farmondto) {
+//        System.out.println("Hello World!");
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/farmresourceList");
+        return callFarmonService(farmondto);
     }
 }
