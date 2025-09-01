@@ -220,6 +220,15 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
+    public FarmonDTO callEditShopresService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/editShopRes");
+        return callFarmonService(farmondto);
+    }
+    
     public FarmonDTO callAddResacqService(FarmonDTO farmondto) {
 
         client = ClientBuilder.newBuilder()
@@ -244,6 +253,15 @@ public class FarmonClient {
                    .register(org.glassfish.jersey.jackson.JacksonFeature.class)
                    .build();
         webTarget = client.target(BASE_URI).path("allServices/addExpense");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callDelExpService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/delExpense");
         return callFarmonService(farmondto);
     }
     
