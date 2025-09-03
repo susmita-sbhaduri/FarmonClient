@@ -100,6 +100,16 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
+    public FarmonDTO callMonthlyAppResRptService(FarmonDTO farmondto) {
+//        System.out.println("Hello World!");
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/resCropMonthly");
+        return callFarmonService(farmondto);
+    }
+    
     public FarmonDTO callLabCropListService(FarmonDTO farmondto) {
 //        System.out.println("Hello World!");
 
