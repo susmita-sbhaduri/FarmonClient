@@ -110,6 +110,15 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
+    public FarmonDTO callMaxRescropIdService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/maxResCropId");
+        return callFarmonService(farmondto);
+    }
+    
     public FarmonDTO callLabCropListService(FarmonDTO farmondto) {
 //        System.out.println("Hello World!");
 
@@ -185,7 +194,14 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
-        
+    public FarmonDTO callNonZeroStockShopResService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/nonzeroStockList");
+        return callFarmonService(farmondto);
+    }   
     public FarmonDTO callAddFarmresService(FarmonDTO farmondto) {
 
         client = ClientBuilder.newBuilder()
@@ -337,4 +353,6 @@ public class FarmonClient {
         webTarget = client.target(BASE_URI).path("allServices/taskplanPerId");
         return callFarmonService(farmondto);
     }
+    
+    
 }
