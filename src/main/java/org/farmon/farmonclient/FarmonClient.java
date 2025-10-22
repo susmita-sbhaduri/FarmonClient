@@ -236,8 +236,7 @@ public class FarmonClient {
                    .build();
         webTarget = client.target(BASE_URI).path("allServices/maxResAcqId");
         return callFarmonService(farmondto);
-    }
-    
+    }    
     
     public FarmonDTO callMaxExpIdService(FarmonDTO farmondto) {
 
@@ -245,6 +244,33 @@ public class FarmonClient {
                    .register(org.glassfish.jersey.jackson.JacksonFeature.class)
                    .build();
         webTarget = client.target(BASE_URI).path("allServices/maxExpId");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callMaxLabcropIdService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/maxLabcropId");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callAddLabcropService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/addLabcrop");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callDelLabcropService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/delLabcrop");
         return callFarmonService(farmondto);
     }
     public FarmonDTO callAddShopresService(FarmonDTO farmondto) {
@@ -342,6 +368,33 @@ public class FarmonClient {
                    .register(org.glassfish.jersey.jackson.JacksonFeature.class)
                    .build();
         webTarget = client.target(BASE_URI).path("allServices/addTaskplan");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callEditTaskplanService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/editTaskplan");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callAddResCropService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/addRescrop");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callDelResCropService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/delRescrop");
         return callFarmonService(farmondto);
     }
     
