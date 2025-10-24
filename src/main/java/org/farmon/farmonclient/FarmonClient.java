@@ -309,6 +309,15 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
+    public FarmonDTO callResacqPerResService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/resAcqResid");
+        return callFarmonService(farmondto);
+    }
+    
     public FarmonDTO callAddExpService(FarmonDTO farmondto) {
 
         client = ClientBuilder.newBuilder()
