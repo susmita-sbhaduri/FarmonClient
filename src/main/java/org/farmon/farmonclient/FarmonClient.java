@@ -109,6 +109,17 @@ public class FarmonClient {
         webTarget = client.target(BASE_URI).path("allServices/resCropPerRes");
         return callFarmonService(farmondto);
     }
+    
+    public FarmonDTO callResCropPerResDtService(FarmonDTO farmondto) {
+//        System.out.println("Hello World!");
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/resCropPerResDt");
+        return callFarmonService(farmondto);
+    }
+    
     public FarmonDTO callMonthlyExpRptService(FarmonDTO farmondto) {
 //        System.out.println("Hello World!");
 
