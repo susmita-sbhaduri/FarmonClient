@@ -120,6 +120,26 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
+    public FarmonDTO callResCropSumHarDtService(FarmonDTO farmondto) {
+//        System.out.println("Hello World!");
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/resCropSumHarDt");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callLabCropSumHarDtService(FarmonDTO farmondto) {
+//        System.out.println("Hello World!");
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/labCropSumHarDt");
+        return callFarmonService(farmondto);
+    }
+    
     public FarmonDTO callMonthlyExpRptService(FarmonDTO farmondto) {
 //        System.out.println("Hello World!");
 
