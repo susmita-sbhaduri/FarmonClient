@@ -130,6 +130,16 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
+    public FarmonDTO callResCropPerHarDtService(FarmonDTO farmondto) {
+//        System.out.println("Hello World!");
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/resCropPerHarDt");
+        return callFarmonService(farmondto);
+    }
+    
     public FarmonDTO callLabCropSumHarDtService(FarmonDTO farmondto) {
 //        System.out.println("Hello World!");
 
@@ -137,6 +147,24 @@ public class FarmonClient {
                    .register(org.glassfish.jersey.jackson.JacksonFeature.class)
                    .build();
         webTarget = client.target(BASE_URI).path("allServices/labCropSumHarDt");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callLabCropDtlsHarDtService(FarmonDTO farmondto) {
+//        System.out.println("Hello World!");
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/labCropDtlsHarDt");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callEmpExpPerDtService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/empExpensePerDt");
         return callFarmonService(farmondto);
     }
     
