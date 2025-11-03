@@ -168,6 +168,30 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
+    public FarmonDTO callEmpActiveLoanService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/empActiveLoans");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callEmpPaybkLoanService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/empPaybkPerLoan");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callEmpNameforIdService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/empNameForId");
+        return callFarmonService(farmondto);
+    }
+    
     public FarmonDTO callMonthlyExpRptService(FarmonDTO farmondto) {
 //        System.out.println("Hello World!");
 
