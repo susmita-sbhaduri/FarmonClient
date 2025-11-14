@@ -192,6 +192,23 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
+    public FarmonDTO callMaxEmpIdService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/maxEmpId");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callAddEmpService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/addEmployee");
+        return callFarmonService(farmondto);
+    }
+    
     public FarmonDTO callMonthlyExpRptService(FarmonDTO farmondto) {
 //        System.out.println("Hello World!");
 
