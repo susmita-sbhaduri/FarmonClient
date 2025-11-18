@@ -168,6 +168,38 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
+    public FarmonDTO callEditEmpExpService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/editEmpExp");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callMaxEmpExpIdService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/maxEmpExpId");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callActiveEmpExpService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/activeEmpExp");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callEmpLeaveCountService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/empLeaves");
+        return callFarmonService(farmondto);
+    }
+    
     public FarmonDTO callEmpActiveLoanService(FarmonDTO farmondto) {
         client = ClientBuilder.newBuilder()
                    .register(org.glassfish.jersey.jackson.JacksonFeature.class)
@@ -199,6 +231,22 @@ public class FarmonClient {
         webTarget = client.target(BASE_URI).path("allServices/maxEmpId");
         return callFarmonService(farmondto);
     }
+    
+    public FarmonDTO callGetActiveEmpService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/getActiveEmp");
+        return callFarmonService(farmondto);
+    }
+    
+//    public FarmonDTO callGetEmpNamePerIdService(FarmonDTO farmondto) {
+//        client = ClientBuilder.newBuilder()
+//                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+//                   .build();
+//        webTarget = client.target(BASE_URI).path("allServices/empNameforId");
+//        return callFarmonService(farmondto);
+//    }
     
     public FarmonDTO callAddEmpService(FarmonDTO farmondto) {
 
