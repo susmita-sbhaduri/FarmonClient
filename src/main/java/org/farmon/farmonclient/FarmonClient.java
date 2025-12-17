@@ -237,11 +237,27 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
+    public FarmonDTO callGetEmpLeavesService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/empLeaves");
+        return callFarmonService(farmondto);
+    }
+    
     public FarmonDTO callEmpActiveLoanService(FarmonDTO farmondto) {
         client = ClientBuilder.newBuilder()
                    .register(org.glassfish.jersey.jackson.JacksonFeature.class)
                    .build();
         webTarget = client.target(BASE_URI).path("allServices/empActiveLoans");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callEmpPaidLoanService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/empPaidLoans");
         return callFarmonService(farmondto);
     }
     
