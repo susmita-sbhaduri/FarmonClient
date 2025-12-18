@@ -241,7 +241,7 @@ public class FarmonClient {
         client = ClientBuilder.newBuilder()
                    .register(org.glassfish.jersey.jackson.JacksonFeature.class)
                    .build();
-        webTarget = client.target(BASE_URI).path("allServices/empLeaves");
+        webTarget = client.target(BASE_URI).path("allServices/empLeaveList");
         return callFarmonService(farmondto);
     }
     
