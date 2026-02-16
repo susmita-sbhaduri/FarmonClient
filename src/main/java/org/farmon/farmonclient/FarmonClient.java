@@ -29,12 +29,12 @@ public class FarmonClient {
     private String BASE_URI;
     
     public FarmonClient() {
-//        BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
-        BASE_URI =  "http://103.211.202.129:8080/FarmonWebService/resources/";
+        BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
+//        BASE_URI =  "http://109.199.101.206:8080/FarmonWebService/resources/";
     }
     public FarmonClient(String server,String serverPort) {
-//        BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
-        BASE_URI =  "http://103.211.202.129:8080/FarmonWebService/resources/";
+        BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
+//        BASE_URI =  "http://109.199.101.206:8080/FarmonWebService/resources/";
     }
     private FarmonDTO callFarmonService(FarmonDTO farmonDTO) {
         WebTarget resource = webTarget;
@@ -60,7 +60,7 @@ public class FarmonClient {
             farmonDTO.getUserDto().setResponseMsg("responsreaderror");
             
         }
-        return farmonDTO;
+            return farmonDTO;
     }
     public FarmonDTO callLoginAuthService(FarmonDTO userDTO) {
 //        System.out.println("Hello World!");
