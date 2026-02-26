@@ -29,12 +29,12 @@ public class FarmonClient {
     private String BASE_URI;
     
     public FarmonClient() {
-//        BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
-        BASE_URI =  "http://109.199.101.206:8080/FarmonWebService/resources/";
+        BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
+//        BASE_URI =  "http://109.199.101.206:8080/FarmonWebService/resources/";
     }
     public FarmonClient(String server,String serverPort) {
-//        BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
-        BASE_URI =  "http://109.199.101.206:8080/FarmonWebService/resources/";
+        BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
+//        BASE_URI =  "http://109.199.101.206:8080/FarmonWebService/resources/";
     }
     private FarmonDTO callFarmonService(FarmonDTO farmonDTO) {
         WebTarget resource = webTarget;
@@ -688,5 +688,11 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
-    
+    public FarmonDTO callSensorDataService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/sensorDataList");
+        return callFarmonService(farmondto);
+    }
 }
