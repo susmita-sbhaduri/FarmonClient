@@ -704,4 +704,37 @@ public class FarmonClient {
         webTarget = client.target(BASE_URI).path("allServices/sensorDataList");
         return callFarmonService(farmondto);
     }
+    
+    public FarmonDTO callMaxShopIdService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/maxShopId");
+        return callFarmonService(farmondto);
+    }
+        
+    public FarmonDTO callAddShopService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/addShop");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callShopforIdService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/shopForId");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callEditShopService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/editShop");
+        return callFarmonService(farmondto);
+    }
 }
