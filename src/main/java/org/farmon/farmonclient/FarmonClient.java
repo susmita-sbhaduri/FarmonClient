@@ -737,4 +737,12 @@ public class FarmonClient {
         webTarget = client.target(BASE_URI).path("allServices/editShop");
         return callFarmonService(farmondto);
     }
+    
+    public FarmonDTO callDelShopService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/delShop");
+        return callFarmonService(farmondto);
+    }
 }
