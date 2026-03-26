@@ -752,4 +752,11 @@ public class FarmonClient {
         webTarget = client.target(BASE_URI).path("allServices/cropList");
         return callFarmonService(farmondto);
     }
+    public FarmonDTO callNonzeroInvForCropService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/nonZeroInv");
+        return callFarmonService(farmondto);
+    }
 }
