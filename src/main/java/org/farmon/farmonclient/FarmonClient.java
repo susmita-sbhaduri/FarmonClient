@@ -766,4 +766,35 @@ public class FarmonClient {
         webTarget = client.target(BASE_URI).path("allServices/maxCropId");
         return callFarmonService(farmondto);
     }
+    public FarmonDTO callAddCropService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/addCrop");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callMaxInvIdService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/maxInvId");
+        return callFarmonService(farmondto);
+    }
+    public FarmonDTO callAddInvService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/addInventory");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callDelCropService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/delCrop");
+        return callFarmonService(farmondto);
+    }
 }
