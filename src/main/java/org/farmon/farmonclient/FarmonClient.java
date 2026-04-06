@@ -759,11 +759,11 @@ public class FarmonClient {
         webTarget = client.target(BASE_URI).path("allServices/cropRec");
         return callFarmonService(farmondto);
     }
-    public FarmonDTO callNonzeroInvForCropService(FarmonDTO farmondto) {
+    public FarmonDTO callNonzeroProdForCropService(FarmonDTO farmondto) {
         client = ClientBuilder.newBuilder()
                    .register(org.glassfish.jersey.jackson.JacksonFeature.class)
                    .build();
-        webTarget = client.target(BASE_URI).path("allServices/nonZeroInv");
+        webTarget = client.target(BASE_URI).path("allServices/nonZeroCropprod");
         return callFarmonService(farmondto);
     }
     public FarmonDTO callMaxCropIdService(FarmonDTO farmondto) {
@@ -809,6 +809,13 @@ public class FarmonClient {
                    .register(org.glassfish.jersey.jackson.JacksonFeature.class)
                    .build();
         webTarget = client.target(BASE_URI).path("allServices/invHarForCrop");
+        return callFarmonService(farmondto);
+    }
+    public FarmonDTO callDelInventoryForCropidService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/delInvCropid");
         return callFarmonService(farmondto);
     }
     public FarmonDTO callMaxCropprodIdService(FarmonDTO farmondto) {
