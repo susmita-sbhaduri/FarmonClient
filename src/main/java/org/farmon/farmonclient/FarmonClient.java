@@ -803,6 +803,14 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
+    public FarmonDTO callEditInvService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/editInventory");
+        return callFarmonService(farmondto);
+    }
+    
     public FarmonDTO callDelCropService(FarmonDTO farmondto) {
 
         client = ClientBuilder.newBuilder()
