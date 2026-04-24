@@ -928,4 +928,20 @@ public class FarmonClient {
         webTarget = client.target(BASE_URI).path("allServices/cropprodCropProd");
         return callFarmonService(farmondto);
     }
+    
+    public FarmonDTO callMaxSalesIdService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/maxSalesId");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callAddSalesService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/addSales");
+        return callFarmonService(farmondto);
+    }
 }
