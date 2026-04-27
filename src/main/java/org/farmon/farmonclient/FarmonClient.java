@@ -944,4 +944,11 @@ public class FarmonClient {
         webTarget = client.target(BASE_URI).path("allServices/addSales");
         return callFarmonService(farmondto);
     }
+    public FarmonDTO callDelSalesRecService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/delSales");
+        return callFarmonService(farmondto);
+    }
 }
