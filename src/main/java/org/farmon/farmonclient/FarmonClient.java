@@ -1018,4 +1018,12 @@ public class FarmonClient {
         webTarget = client.target(BASE_URI).path("allServices/latestSalesForCrop");
         return callFarmonService(farmondto);
     }
+    
+    public FarmonDTO callSalesForHarCropProdService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/saleHarCropProd");
+        return callFarmonService(farmondto);
+    }
 }
