@@ -1019,11 +1019,11 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
-    public FarmonDTO callSalesForHarCropProdService(FarmonDTO farmondto) {
+    public FarmonDTO callSalesSumHarCropProdService(FarmonDTO farmondto) {
         client = ClientBuilder.newBuilder()
                    .register(org.glassfish.jersey.jackson.JacksonFeature.class)
                    .build();
-        webTarget = client.target(BASE_URI).path("allServices/saleHarCropProd");
+        webTarget = client.target(BASE_URI).path("allServices/salesHarCropProd");
         return callFarmonService(farmondto);
     }
 }
