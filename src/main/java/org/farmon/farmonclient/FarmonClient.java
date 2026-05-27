@@ -403,6 +403,23 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
+    public FarmonDTO callMaxBuyerIdService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/maxBuyerId");
+        return callFarmonService(farmondto);
+    }
+    
+     public FarmonDTO callAddBuyerService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/addBuyer");
+        return callFarmonService(farmondto);
+    }
+    
     public FarmonDTO callResidForNameService(FarmonDTO farmondto) {
 
         client = ClientBuilder.newBuilder()
