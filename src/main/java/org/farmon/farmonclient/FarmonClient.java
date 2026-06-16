@@ -1109,4 +1109,19 @@ public class FarmonClient {
         webTarget = client.target(BASE_URI).path("allServices/stagesCropProd");
         return callFarmonService(farmondto);
     }
+    public FarmonDTO callMaxProdStagesIdService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/maxStageId");
+        return callFarmonService(farmondto);
+    }
+    public FarmonDTO callAddProdStageService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/addProdStage");
+        return callFarmonService(farmondto);
+    }
 }
