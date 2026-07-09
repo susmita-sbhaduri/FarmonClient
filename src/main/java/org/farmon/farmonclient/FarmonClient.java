@@ -917,6 +917,14 @@ public class FarmonClient {
         return callFarmonService(farmondto);
     }
     
+    public FarmonDTO callFirstInvForCropService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/firstInvForCrop");
+        return callFarmonService(farmondto);
+    }
+    
     public FarmonDTO callLastInvForSalesService(FarmonDTO farmondto) {
         client = ClientBuilder.newBuilder()
                    .register(org.glassfish.jersey.jackson.JacksonFeature.class)
@@ -954,6 +962,14 @@ public class FarmonClient {
                    .register(org.glassfish.jersey.jackson.JacksonFeature.class)
                    .build();
         webTarget = client.target(BASE_URI).path("allServices/sumHarCropProd");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callSaleHarCropProdService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/saleHarCropProd");
         return callFarmonService(farmondto);
     }
     
