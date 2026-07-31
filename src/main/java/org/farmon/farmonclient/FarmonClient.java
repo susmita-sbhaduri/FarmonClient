@@ -1224,4 +1224,20 @@ public class FarmonClient {
         webTarget = client.target(BASE_URI).path("allServices/addGrowthStage");
         return callFarmonService(farmondto);
     }
+    
+    public FarmonDTO callGetGrwothLCIdService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/getLCStgIds");
+        return callFarmonService(farmondto);
+    }
+    
+    public FarmonDTO callGetLatestGrthStgLCService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/getLatestGrtStgLc");
+        return callFarmonService(farmondto);
+    }
 }
