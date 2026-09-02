@@ -29,12 +29,12 @@ public class FarmonClient {
     private String BASE_URI;
     
     public FarmonClient() {
-//        BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
-        BASE_URI =  "http://103.108.220.220:8080/FarmonWebService/resources/";
+        BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
+//        BASE_URI =  "http://103.108.220.220:8080/FarmonWebService/resources/";
     }
     public FarmonClient(String server,String serverPort) {
-//        BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
-        BASE_URI =  "http://103.108.220.220:8080/FarmonWebService/resources/";
+        BASE_URI =  "http://localhost:8080/FarmonWebService/resources/";
+//        BASE_URI =  "http://103.108.220.220:8080/FarmonWebService/resources/";
     }
     private FarmonDTO callFarmonService(FarmonDTO farmonDTO) {
         WebTarget resource = webTarget;
@@ -837,6 +837,13 @@ public class FarmonClient {
                    .register(org.glassfish.jersey.jackson.JacksonFeature.class)
                    .build();
         webTarget = client.target(BASE_URI).path("allServices/nonZeroCropprod");
+        return callFarmonService(farmondto);
+    }
+    public FarmonDTO callMaxIdCropService(FarmonDTO farmondto) {
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/maxIdCrop");
         return callFarmonService(farmondto);
     }
     public FarmonDTO callMaxCropIdService(FarmonDTO farmondto) {
