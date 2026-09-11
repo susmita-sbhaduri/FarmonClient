@@ -900,6 +900,16 @@ public class FarmonClient {
         webTarget = client.target(BASE_URI).path("allServices/delCrop");
         return callFarmonService(farmondto);
     }
+    
+    public FarmonDTO callDelCropCropidService(FarmonDTO farmondto) {
+
+        client = ClientBuilder.newBuilder()
+                   .register(org.glassfish.jersey.jackson.JacksonFeature.class)
+                   .build();
+        webTarget = client.target(BASE_URI).path("allServices/delCropCropid");
+        return callFarmonService(farmondto);
+    }
+    
     public FarmonDTO callInvHarForCropService(FarmonDTO farmondto) {
         client = ClientBuilder.newBuilder()
                    .register(org.glassfish.jersey.jackson.JacksonFeature.class)
